@@ -24,6 +24,7 @@ RUN echo "clear_env = no" >> /etc/php5/php-fpm.conf
 
 RUN mkdir -p /srv/http/u
 RUN chmod -R 777 /srv/http/u
+RUN mkdir /run/nginx
 
 EXPOSE 80
 
