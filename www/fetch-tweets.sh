@@ -35,7 +35,7 @@ then
 	test "$2" && since='&max_id='$(tail -n1 "$1.txt" | cut -d'|' -f1) # use max_id to get older tweets
 fi
 
-while urlargs="screen_name=${1}&count=200&page=${page}${since}&include_rts=1&trim_user=0"; echo "$urlargs"; /srv/http/oauth.php "$urlargs" |
+while urlargs="screen_name=${1}&count=200&page=${page}${since}&include_rts=1&trim_user=1"; echo "$urlargs"; /srv/http/oauth.php "$urlargs" |
 /srv/http/json-to-text.php > "$temp2"; test "$(wc -l < "$temp2")" -gt 0;
 do
 

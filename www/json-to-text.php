@@ -6,20 +6,20 @@ for ($i=0; $i<count($foo); $i++){
     echo $foo[$i]->id_str . "|";
     echo $foo[$i]->created_at . "|";
     $tweet = str_replace("\n", " ", $foo[$i]->text);
-	if (!empty($foo[$i]->entities->urls)) {
-		foreach($foo[$i]->entities->urls as $u) {
+	if (!empty($foo[$i]->urls)) {
+		foreach($foo[$i]->urls as $u) {
 		//print_r($u->url);
 		////print_r($u->expanded_url);
 		$tweet = str_replace($u->url,$u->expanded_url,$tweet);
 	}
 	}
-	if (!empty($foo[$i]->entities->media)) {
-		foreach($foo[$i]->entities->media as $m) {
-		//print_r($u->url);
-		////print_r($u->expanded_url);
-		$tweet = str_replace($m->url,$m->media_url,$tweet);
-	}
-	}
+	// if (!empty($foo[$i]->entities->media)) {
+	// 	foreach($foo[$i]->entities->media as $m) {
+	// 	//print_r($u->url);
+	// 	////print_r($u->expanded_url);
+	// 	$tweet = str_replace($m->url,$m->media_url,$tweet);
+	// }
+	// }
 	echo $tweet . "\n";
 }
 //print_r($foo);
